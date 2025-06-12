@@ -39,37 +39,46 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($categories as $data)
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $data->name }}
-                                </td>
-                                {{-- <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @if ($categories->count() > 0)
+                            @foreach ($categories as $data)
+                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $data->name }}
+                                    </td>
+                                    {{-- <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <img src="{{ Storage::url($data->image) }}">
                                 </td> --}}
-                                <td
-                                    class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img src="{{ Storage::url($data->image) }}" class="w-16 h-16 rounded">
-                                </td>
-                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $data->description }}
-                                </td>
-                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div class="flex">
-                                        <a class="px-4 py-2 ml-2 bg-green-500 hover:bg-green-700 rounded-lg text-white"
-                                            href="{{ route('admin.categories.edit', $data->id) }}">Edit</a>
-                                        <form method="POST" action="{{ route('admin.categories.destroy', $data->id) }}"
-                                            onsubmit="return confirm('Are you sure you want to delete it?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button
-                                                class="px-4 py-2 ml-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
-                                                type="submit">Delete</button>
-                                        </form>
-                                    </div>
+                                    <td
+                                        class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <img src="{{ Storage::url($data->image) }}" class="w-16 h-16 rounded">
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $data->description }}
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <div class="flex">
+                                            <a class="px-4 py-2 ml-2 bg-green-500 hover:bg-green-700 rounded-lg text-white"
+                                                href="{{ route('admin.categories.edit', $data->id) }}">Edit</a>
+                                            <form method="POST"
+                                                action="{{ route('admin.categories.destroy', $data->id) }}"
+                                                onsubmit="return confirm('Are you sure you want to delete it?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button
+                                                    class="px-4 py-2 ml-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
+                                                    type="submit">Delete</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td colspan="4" class="px-6 py-4 text-center text-gray-500 dark:text-gray-300">
+                                    No categories available.
                                 </td>
                             </tr>
-                        @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>

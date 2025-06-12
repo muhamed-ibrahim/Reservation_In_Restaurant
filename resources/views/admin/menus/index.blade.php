@@ -39,29 +39,42 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($menus as $data)
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $data->name }}
-                                </td>
-                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img src="{{ Storage::url($data->image) }}" class="w-16 h-16 rounded">
-                                </td>
-                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $data->price}}$
-                                </td>
-                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div class="flex">
-                                        <a class="px-4 py-2 ml-2 bg-green-500 hover:bg-green-700 rounded-lg text-white" href="{{ route('admin.menus.edit', $data->id) }}">Edit</a>
-                                        <form method="POST" action="{{route('admin.menus.destroy',$data->id)}}" onsubmit="return confirm('Are you sure you want to delete it?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="px-4 py-2 ml-2 bg-red-500 hover:bg-red-700 rounded-lg text-white" type="submit">Delete</button>
-                                        </form>
-                                    </div>
+                        @if ($menus->count() > 0)
+
+                            @foreach ($menus as $data)
+                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $data->name }}
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <img src="{{ Storage::url($data->image) }}" class="w-16 h-16 rounded">
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $data->price }}$
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <div class="flex">
+                                            <a class="px-4 py-2 ml-2 bg-green-500 hover:bg-green-700 rounded-lg text-white"
+                                                href="{{ route('admin.menus.edit', $data->id) }}">Edit</a>
+                                            <form method="POST" action="{{ route('admin.menus.destroy', $data->id) }}"
+                                                onsubmit="return confirm('Are you sure you want to delete it?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button
+                                                    class="px-4 py-2 ml-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
+                                                    type="submit">Delete</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td colspan="4" class="px-6 py-4 text-center text-gray-500 dark:text-gray-300">
+                                    No menus available.
                                 </td>
                             </tr>
-                        @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>

@@ -593,6 +593,8 @@ class ComposerStaticInit3c31962181e89a37d586c3fb576d4c48
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Enums\\TableLocation' => __DIR__ . '/../..' . '/app/Enums/TableLocation.php',
+        'App\\Enums\\TableStatus' => __DIR__ . '/../..' . '/app/Enums/TableStatus.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
@@ -609,6 +611,10 @@ class ComposerStaticInit3c31962181e89a37d586c3fb576d4c48
         'App\\Http\\Controllers\\Auth\\RegisteredUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisteredUserController.php',
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Frontend\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/CategoryController.php',
+        'App\\Http\\Controllers\\Frontend\\MenuController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/MenuController.php',
+        'App\\Http\\Controllers\\Frontend\\ReservationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ReservationController.php',
+        'App\\Http\\Controllers\\Frontend\\WelcomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/WelcomeController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Admin' => __DIR__ . '/../..' . '/app/Http/Middleware/Admin.php',
@@ -633,6 +639,8 @@ class ComposerStaticInit3c31962181e89a37d586c3fb576d4c48
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Rules\\DateBetweenRule' => __DIR__ . '/../..' . '/app/Rules/DateBetweenRule.php',
+        'App\\Rules\\timeBetweenRule' => __DIR__ . '/../..' . '/app/Rules/timeBetweenRule.php',
         'App\\View\\Components\\AdminLayout' => __DIR__ . '/../..' . '/app/View/Components/AdminLayout.php',
         'App\\View\\Components\\AppLayout' => __DIR__ . '/../..' . '/app/View/Components/AppLayout.php',
         'App\\View\\Components\\GuestLayout' => __DIR__ . '/../..' . '/app/View/Components/GuestLayout.php',

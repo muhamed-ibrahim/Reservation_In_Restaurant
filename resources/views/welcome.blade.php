@@ -13,7 +13,7 @@
         </div>
         <div class="flex flex-col items-center mt-12 text-center">
             <span class="relative inline-flex w-full md:w-auto">
-                <a href="{{route('reservations.stepone')}}" type="button"
+                <a href="{{ route('reservations.stepone') }}" type="button"
                     class="inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-6 text-white bg-green-600 rounded-full lg:w-full md:w-auto hover:bg-green-500 focus:outline-none">
                     Make your Reservation
                 </a>
@@ -119,24 +119,32 @@
             <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
                 TODAY'S SPECIALITY</h2>
         </div>
-        <div class="container w-full px-5 py-6 mx-auto">
-            <div class="grid lg:grid-cols-4 gap-y-6">
-                @foreach ($special->menus as $menu)
-                    <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">
-                        <img class="w-full h-48" src="{{ Storage::url($menu->image) }}" alt="Image" />
-                        <div class="px-6 py-4">
-                            <h4 class="mb-3 text-xl font-semibold tracking-tight text-green-600 uppercase">
-                                {{ $menu->name }}</h4>
-                            </h4>
-                            <p class="leading-normal text-gray-700">{{ $menu->description }}.</p>
-                            <div class="flex items-center justify-between p-4">
-                                <span class="text-xl text-green-600">${{ $menu->price }}</span>
+        <div class="container w-full px-5 py-6 mx-auto min-h-screen">
+            @if ($special && $special->menus && $special->menus->count())
+                <div class="grid lg:grid-cols-4 gap-y-6">
+                    @foreach ($special->menus as $menu)
+                        <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">
+                            <img class="w-full h-48 object-cover" src="{{ Storage::url($menu->image) }}"
+                                alt="Image" />
+                            <div class="px-6 py-4">
+                                <h4 class="mb-3 text-xl font-semibold tracking-tight text-green-600 uppercase">
+                                    {{ $menu->name }}
+                                </h4>
+                                <p class="leading-normal text-gray-700">{{ $menu->description }}.</p>
+                                <div class="flex items-center justify-between p-4">
+                                    <span class="text-xl text-green-600">${{ $menu->price }}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
+            @else
+                <div class="flex items-center justify-center h-full min-h-[400px] w-full">
+                    <p class="text-gray-600 text-xl text-center">No special menus available.</p>
+                </div>
+            @endif
         </div>
+
     </section>
     <section class="pt-4 pb-12 bg-gray-800">
         <div class="my-16 text-center">

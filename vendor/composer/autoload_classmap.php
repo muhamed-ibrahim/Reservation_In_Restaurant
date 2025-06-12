@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Enums\\TableLocation' => $baseDir . '/app/Enums/TableLocation.php',
+    'App\\Enums\\TableStatus' => $baseDir . '/app/Enums/TableStatus.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Admin\\AdminController' => $baseDir . '/app/Http/Controllers/Admin/AdminController.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
@@ -23,6 +25,10 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisteredUserController' => $baseDir . '/app/Http/Controllers/Auth/RegisteredUserController.php',
     'App\\Http\\Controllers\\Auth\\VerifyEmailController' => $baseDir . '/app/Http/Controllers/Auth/VerifyEmailController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\Frontend\\CategoryController' => $baseDir . '/app/Http/Controllers/Frontend/CategoryController.php',
+    'App\\Http\\Controllers\\Frontend\\MenuController' => $baseDir . '/app/Http/Controllers/Frontend/MenuController.php',
+    'App\\Http\\Controllers\\Frontend\\ReservationController' => $baseDir . '/app/Http/Controllers/Frontend/ReservationController.php',
+    'App\\Http\\Controllers\\Frontend\\WelcomeController' => $baseDir . '/app/Http/Controllers/Frontend/WelcomeController.php',
     'App\\Http\\Controllers\\ProfileController' => $baseDir . '/app/Http/Controllers/ProfileController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Admin' => $baseDir . '/app/Http/Middleware/Admin.php',
@@ -47,6 +53,8 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Rules\\DateBetweenRule' => $baseDir . '/app/Rules/DateBetweenRule.php',
+    'App\\Rules\\timeBetweenRule' => $baseDir . '/app/Rules/timeBetweenRule.php',
     'App\\View\\Components\\AdminLayout' => $baseDir . '/app/View/Components/AdminLayout.php',
     'App\\View\\Components\\AppLayout' => $baseDir . '/app/View/Components/AppLayout.php',
     'App\\View\\Components\\GuestLayout' => $baseDir . '/app/View/Components/GuestLayout.php',

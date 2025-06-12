@@ -23,7 +23,7 @@ use App\Http\Controllers\Frontend\WelcomeController;
 |
 */
 
-Route::get('/welcome', [WelcomeController::class,'index'])->name('welcome.index');
+Route::get('/', [WelcomeController::class,'index'])->name('welcome.index');
 Route::get('/categories', [FrontendCategoryController::class, 'index'])->name('categories.index');
 Route::get('/categories/{id}', [FrontendCategoryController::class, 'show'])->name('categories.show');
 
